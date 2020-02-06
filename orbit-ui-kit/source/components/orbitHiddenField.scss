@@ -1,0 +1,19 @@
+@import "../style/shared/_variables.scss";
+
+.hidden-field {
+  @include orbit-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 150px;
+
+  .value {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  i {
+    margin-left: $spacing-xsmall;
+  }
+}

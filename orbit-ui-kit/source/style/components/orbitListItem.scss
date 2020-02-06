@@ -1,0 +1,30 @@
+@import '../style/variables';
+@import '../style/mixins';
+
+.orbit-list-item {
+  @include space-between-content();
+  width: 100%;
+  padding: $spacing-small;
+  border-top: $line-very-light;
+
+  &:last-of-type {
+    border-bottom: $line-very-light;
+  }
+
+  .orbit-list-item-left,
+  .orbit-list-item-right {
+    @include space-between-content();
+  }
+
+  .orbit-list-item-left {
+    .icon {
+      margin-right: $spacing-small;
+    }
+  }
+
+  .orbit-list-item-right {
+    button.btn {
+      margin-left: $spacing-small;
+    }
+  }
+}

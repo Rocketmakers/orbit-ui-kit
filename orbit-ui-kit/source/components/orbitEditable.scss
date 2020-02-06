@@ -1,0 +1,26 @@
+@import "../style/shared/_variables.scss";
+
+.orbit-editable {
+  @include orbit-box;
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-medium;
+
+    label {
+      color: $gray-medium;
+    }
+
+    .actions {
+      .btn {
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+        height: unset;
+        margin-left: $spacing-small;
+      }
+    }
+  }
+}

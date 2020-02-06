@@ -1,0 +1,134 @@
+// RESPOSIVENESS
+
+@mixin button-shadow($color) {
+  box-shadow: 0 4px 0 darken($color, 20%);
+  &:active:not(:disabled) {
+    box-shadow: 0 2px 0 darken($color, 20%);
+  }
+}
+
+@mixin media-query($screen-width: $screen-size-phone) {
+  @media screen and (max-width: $screen-width) {
+    @content;
+  }
+}
+
+@mixin screen-tablet() {
+  @include media-query($screen-size-tablet) {
+    @content;
+  }
+}
+
+@mixin screen-phone() {
+  @include media-query($screen-size-phone) {
+    @content;
+  }
+}
+
+@mixin screen-phone-tiny() {
+  @include media-query($screen-size-phone * 0.4) {
+    @content;
+  }
+}
+
+// LAYOUT
+
+@mixin basic-pseudo() {
+  display: block;
+  content: "";
+}
+
+@mixin centre-content() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin inline-centre-content() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between-content() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin centre-img() {
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin centre-bg-img() {
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin absolute-fill($padding: 0) {
+  position: absolute;
+  left: $padding;
+  top: $padding;
+  right: $padding;
+  bottom: $padding;
+}
+
+@mixin fixed-fill($padding: 0) {
+  position: fixed;
+  left: $padding;
+  top: $padding;
+  right: $padding;
+  bottom: $padding;
+}
+
+@mixin tidy-grid($min: 300px, $gap: $spacing-medium) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: $gap;
+}
+
+// SIZES
+
+@mixin square($size: 40px) {
+  width: $size;
+  height: $size;
+}
+
+@mixin square-hack($size: 40px) {
+  width: $size;
+
+  &::after {
+    @include basic-pseudo();
+    padding-bottom: 100%;
+  }
+}
+
+@mixin circle($size: 40px) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  padding: 0;
+}
+
+@mixin rect($x: 40px, $y: 80px) {
+  width: $x;
+  height: $y;
+}
+
+@mixin fill() {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fill-screen() {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin orbit-box() {
+  border: 1px solid $gray-very-light;
+  border-radius: $border-radius-medium;
+  padding: $spacing-small;
+  margin-bottom: $spacing-medium;
+}

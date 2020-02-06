@@ -1,0 +1,90 @@
+@import "../style/shared/_variables.scss";
+
+.header {
+  padding: $spacing-medium $spacing-large;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  transition: box-shadow 0.2s;
+
+  .header-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    .header-actions {
+      flex-grow: 1;
+      justify-content: flex-end;
+      display: flex;
+      align-items: center;
+
+      > * {
+        margin-left: $spacing-medium;
+      }
+    }
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    color: $gray-medium;
+    span {
+      margin: $spacing-xsmall;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.link {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    i {
+      font-size: 10px;
+      font-weight: 600;
+    }
+  }
+
+  .go-back-btn {
+    margin-right: $spacing-small;
+    color: var(--orbit-color);
+  }
+
+  .menu-button {
+    display: none;
+    box-shadow: none;
+    font-size: $font-size-medium;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .armstrong-input {
+    margin-bottom: 0;
+  }
+
+  &[data-top="false"] {
+    background-color: white;
+    box-shadow: $shadow;
+
+    .breadcrumb {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .title {
+    font-size: $font-size-large;
+    margin-right: $spacing-medium;
+
+    i {
+      margin-right: $spacing-small;
+    }
+  }
+}

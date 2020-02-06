@@ -1,0 +1,37 @@
+{
+  "name": "@rocketmakers/orbit-ui-kit-monorepo",
+  "version": "0.0.1-alpha.44",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "ts-node _deploy/publish.ts",
+    "version": "(cd orbit-ui-kit && npm version prerelease --preid=alpha --git-tag-version=false) && git add .",
+    "postinstall": "(cd orbit-ui-kit && npm i) && (cd orbit-ui-kit/playground && npm i)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rocketmakers/orbit-ui-kit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rocketmakers/orbit-ui-kit/issues"
+  },
+  "homepage": "https://github.com/Rocketmakers/orbit-ui-kit#readme",
+  "devDependencies": {
+    "@rocketmakers/log": "0.1.0",
+    "@types/node": "13.1.0",
+    "@types/prompts": "2.0.3",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/semver": "6.2.0",
+    "current-git-branch": "1.1.0",
+    "prompts": "2.3.0",
+    "react-router-dom": "^5.1.2",
+    "semver": "7.1.1",
+    "ts-node": "8.6.2",
+    "typescript": "3.6.3"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,43 @@
+/***********************************************************************************
+  ARMSTRONG SCSS EXPORTS - CORE
+  all scss to be consumed must be exported here.
+  EVERYTHING IN HERE WILL ONLY BE IMPORTED ONCE AND SHOULD BE EXPORTING "REAL" CSS
+************************************************************************************/
+
+// ARMSTRONG STYLING IMPORTS
+@import "~@rocketmakers/armstrong/dist/imports";
+@import "~@rocketmakers/armstrong/dist/core";
+@import "~@rocketmakers/armstrong/dist/form";
+@import "~@rocketmakers/armstrong/dist/navigation";
+@import "~@rocketmakers/armstrong/dist/animation";
+
+// FONTS
+// @import "./style/shared/fonts";
+@import "./style/shared/icomoon";
+
+// VARIABLES
+@import "./style/shared/variables";
+
+// MIXINS
+@import "./style/shared/mixins";
+
+// ARMSTRONG VARIABLE OVERRIDES
+@import "./style/shared/variables";
+
+// PROJECT SPECIFIC
+@import "./style/shared/typography";
+@import "./style/shared/animations";
+@import "./style/shared/layout";
+@import "./style/shared/buttons";
+@import "./style/shared/forms";
+@import "./style/shared/dialog";
+
+// COMPONENTS
+@import "./style/components/sidebar";
+@import "./style/components/table";
+
+@import "./components/orbitHeader";
+@import "./components/orbitHiddenField";
+@import "./components/orbitView";
+@import "./components/orbitGroup";
+@import "./components/orbitEditable";

@@ -1,0 +1,118 @@
+// //// SCREEN SIZES
+$fixed-site-width: 960px;
+$fixed-screen-size: 1024px;
+$screen-size-phone: 738px;
+$screen-size-tablet: 930px;
+
+// //// FONT SIZES
+$font-size-root: 18px;
+$font-size-xxsmall: 0.7rem;
+$font-size-xsmall: 0.8rem;
+$font-size-small: 1rem;
+$font-size-medium: 1.2rem;
+$font-size-large: 1.7rem;
+$font-size-xlarge: 2.2rem;
+$font-size-xxlarge: 2.5rem;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-sizes: (
+  xxsmall $font-size-xxsmall,
+  xsmall $font-size-xsmall,
+  small $font-size-small,
+  medium $font-size-medium,
+  large $font-size-large,
+  xlarge $font-size-xlarge,
+  xxlarge $font-size-xxlarge
+);
+
+//// SPACINGS
+$spacing-base: 20px;
+$spacing-xxsmall: $spacing-base * 0.15;
+$spacing-xsmall: $spacing-base * 0.3;
+$spacing-small: $spacing-base * 0.6;
+$spacing-medium: $spacing-base;
+$spacing-large: $spacing-base * 1.4;
+$spacing-xlarge: $spacing-base * 2;
+$spacing-xxlarge: $spacing-base * 3;
+$spacing-sizes: (
+  xxsmall $spacing-xxsmall,
+  xsmall $spacing-xsmall,
+  small $spacing-small,
+  medium $spacing-medium,
+  large $spacing-large,
+  xlarge $spacing-xlarge,
+  xxlarge $spacing-xxlarge,
+  none 0
+);
+
+//// COLORS
+$white: #ffffff;
+$black: #000;
+$faded-black: rgba(0, 0, 0, 0.4);
+$color-orbit: #171844;
+$brand-background: #f4f4f4;
+$brand-primary: #89c540;
+$brand-secondary: #fdb52f;
+$brand-yellow: #f2bb05;
+$brand-green: #01c495;
+$brand-green-dark: #178f7a;
+$brand-purple-dark: #3f2f3f;
+$gray-base: #4f5c69;
+$gray-very-dark: #4f4f4f;
+$gray-dark: #736d6d;
+$gray-medium: #a3a3a3;
+$gray-light: #e4e4e4;
+$gray-very-light: #f1f1f1;
+$color-positive: #71da76;
+$color-warning: #f78e52;
+$color-negative: #ff0f0f;
+$color-info: #3498d8;
+$colors: (
+  "positive" $color-positive,
+  "warning" $color-warning,
+  "negative" $color-negative,
+  "info" $color-info,
+  "brand-primary" $brand-primary,
+  "brand-secondary" $brand-secondary,
+  "gray-very-dark" $gray-very-dark,
+  "gray-dark" $gray-dark,
+  "gray-medium" $gray-medium,
+  "gray-light" $gray-light,
+  "gray-very-light" $gray-very-light,
+  "white" $white
+);
+$border-radius-large: 16px;
+$border-radius-small: $border-radius-large / 2;
+$button-min-width: 100px;
+$line-height-expanded: 1.5;
+
+// SHADOWS
+$shadow-color: rgb(20, 0, 0);
+$shine-color: rgb(255, 240, 240);
+$shadow: 0px 1px 10px rgba($shadow-color, 0.2);
+$shadow-small: 0px 1px 25px rgba($shadow-color, 0.12);
+$shadow-medium: 0px 5px 30px rgba($shadow-color, 0.2);
+$shadow-big: 0px 13px 38px rgba($shadow-color, 0.25);
+$shadow-shine: -1px -3px 23px rgba($shine-color, 0.9);
+
+/// TRANSITIONS
+$transition-very-quick: 0.15s;
+$transition-quick: 0.3s;
+$transition-slow: 0.5s;
+$transition-very-slow: 0.7s;
+
+// LINES
+$line: 1px solid;
+$line-very-light: $line $gray-very-light;
+$line-light: $line $gray-light;
+$line-medium: $line $gray-medium;
+$line-dark: $line $gray-dark;
+$line-very-dark: $line $gray-very-dark;
+
+// BORDER RADIUS
+$border-radius-small: 4px;
+$border-radius-medium: 6px;
+$border-radius-large: 18px;
+$border-radius-very-large: 30px;

@@ -1,0 +1,41 @@
+$size: 40px;
+$big-size: 60px;
+
+.btn {
+  @include inline-centre-content();
+  box-shadow: $shadow-small;
+  background-color: $white;
+  color: black;
+  border-radius: $size / 2;
+  height: $size;
+  transition: background-color $transition-quick;
+
+  &:hover {
+    background-color: darken($white, 2%);
+  }
+
+  &[data-accent="true"] {
+    color: var(--orbit-color);
+  }
+
+  &[data-invert="true"] {
+    background-color: var(--orbit-color);
+    color: $white;
+  }
+
+  &[data-has-text="false"] {
+    @include circle($size);
+  }
+
+  &[data-big="true"] {
+    @include circle($big-size);
+  }
+
+  &[data-danger="true"] {
+    color: $color-negative;
+  }
+
+  &[data-success="true"] {
+    color: $color-positive;
+  }
+}

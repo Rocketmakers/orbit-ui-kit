@@ -1,0 +1,52 @@
+input[type='text'],
+input[type='password'],
+input[type='email'],
+select,
+textarea,
+.autocomplete-select .autocomplete-value-display {
+  border-radius: $border-radius-medium;
+  min-width: 300px;
+  background-color: white;
+  box-shadow: $shadow-small;
+  border: none;
+}
+
+textarea {
+  border-radius: $border-radius-medium;
+}
+
+.autocomplete-select {
+  &[data-open=true] {
+    .autocomplete-value-display {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  input {
+    border-radius: 0;
+  }
+
+  .multi-select-item {
+    border-radius: $border-radius-medium;
+  }
+
+  .autocomplete-select-list {
+    .dd-list-item {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.armstrong-input.switch-input {
+  --armstrong-switch-active-color: var(--orbit-color);
+}
+
+label {
+  &[data-required=true] {
+    &::after {
+      content: '*';
+      color: red;
+    }
+  }
+}

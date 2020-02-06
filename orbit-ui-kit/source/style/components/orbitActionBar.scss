@@ -1,0 +1,22 @@
+@import '../style/variables';
+@import '../style/mixins';
+
+$action-bar-height: 125px;
+
+.orbit-action-bar {
+  @include space-between-content();
+  padding: $spacing-medium;
+  height: $action-bar-height;
+  width: 100%;
+
+  .orbit-action-bar-left,
+  .orbit-action-bar-right {
+    @include space-between-content();
+  }
+
+  .orbit-action-bar-right {
+    >* {
+      margin-left: $spacing-small;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@font-face {
+  font-display: swap;
+  font-family: "IcoMoon-Ultimate";
+  src: url("../assets/fonts/IcoMoon-Ultimate.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* @import must be at top of file, otherwise CSS will not work */
+
+@import url("//hello.myfonts.net/count/370c4f");
+
+@font-face {
+  font-display: swap;
+  font-family: "TTBricks";
+  src: url("../assets/fonts/370C4F_0_0.eot");
+  src: url("../assets/fonts/370C4F_0_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/370C4F_0_0.woff2") format("woff2"),
+    url("../assets/fonts/370C4F_0_0.woff") format("woff"), url("../assets/fonts/370C4F_0_0.ttf") format("truetype");
+}
+
+/* EXTRA BOLD */
+@font-face {
+  font-display: swap;
+  font-family: "TTSmalls";
+  font-weight: 800;
+  font-style: normal;
+  src: url("../assets/fonts/370C4F_1_0.eot");
+  src: url("../assets/fonts/370C4F_1_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/370C4F_1_0.woff2") format("woff2"),
+    url("../assets/fonts/370C4F_1_0.woff") format("woff"), url("../assets/fonts/370C4F_1_0.ttf") format("truetype");
+}
+
+/* BOLD */
+@font-face {
+  font-display: swap;
+  font-family: "TTSmalls";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/370C4F_2_0.eot");
+  src: url("../assets/fonts/370C4F_2_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/370C4F_2_0.woff2") format("woff2"),
+    url("../assets/fonts/370C4F_2_0.woff") format("woff"), url("../assets/fonts/370C4F_2_0.ttf") format("truetype");
+}
+
+/* REGULAR */
+@font-face {
+  font-display: swap;
+  font-family: "TTSmalls";
+  font-weight: 300;
+  src: url("../assets/fonts/370C4F_4_0.eot");
+  src: url("../assets/fonts/370C4F_4_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/370C4F_4_0.woff2") format("woff2"),
+    url("../assets/fonts/370C4F_4_0.woff") format("woff"), url("../assets/fonts/373BAD_0_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "TTSmalls";
+  font-weight: 300;
+  font-style: italic;
+  src: url("../assets/fonts/370C4F_3_0.eot");
+  src: url("../assets/fonts/370C4F_3_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/370C4F_3_0.woff2") format("woff2"),
+    url("../assets/fonts/370C4F_3_0.woff") format("woff"), url("../assets/fonts/370C4F_3_0.ttf") format("truetype");
+}
+
+/* LIGHT */
+@font-face {
+  font-display: swap;
+  font-family: "TTSmalls";
+  font-weight: 200;
+  src: url("../assets/fonts/373BAD_0_0.eot");
+  src: url("../assets/fonts/373BAD_0_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/373BAD_0_0.woff2") format("woff2"),
+    url("../assets/fonts/373BAD_0_0.woff") format("woff"), url("../assets/fonts/373BAD_0_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "TTSmalls";
+  font-weight: 200;
+  font-style: italic;
+  src: url("../assets/fonts/373BAD_1_0.eot");
+  src: url("../assets/fonts/373BAD_1_0.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/373BAD_1_0.woff2") format("woff2"),
+    url("../assets/fonts/373BAD_1_0.woff") format("woff"), url("../assets/fonts/373BAD_1_0.ttf") format("truetype");
+}

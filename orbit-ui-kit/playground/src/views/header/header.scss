@@ -1,0 +1,7 @@
+@import "../../../../source/style/shared/_mixins.scss";
+@import "../../../../source/style/shared/_variables.scss";
+
+.component-container {
+  @include orbit-box();
+  padding: 0;
+}

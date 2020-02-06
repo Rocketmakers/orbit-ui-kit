@@ -1,0 +1,55 @@
+@import '../shared/variables';
+@import '../shared/mixins';
+
+.table-container {
+  .table {
+    border: none;
+
+    .table-header {
+      border: none;
+
+      tr {
+        th {
+          border: none;
+          text-transform: capitalize;
+          font-weight: 500;
+
+          i {
+            margin-left: $spacing-small;
+          }
+
+          &:first-of-type {
+            padding-left: $spacing-large;
+          }
+
+          &:last-of-type {
+            padding-right: $spacing-large;
+          }
+        }
+      }
+    }
+
+    .table-body {
+      .table-row {
+        border-top: $line-very-light;
+
+        &:last-of-type {
+          border-bottom: $line-very-light;
+        }
+
+        td {
+          height: 70px;
+          border: none;
+
+          &:first-of-type {
+            padding-left: $spacing-large;
+          }
+
+          &:last-of-type {
+            padding-right: $spacing-large;
+          }
+        }
+      }
+    }
+  }
+}

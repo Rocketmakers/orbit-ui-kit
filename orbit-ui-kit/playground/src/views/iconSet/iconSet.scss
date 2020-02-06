@@ -1,0 +1,12 @@
+@import "../../../../source/style/shared/_variables.scss";
+
+.orbit-icon-set {
+  > div {
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: $spacing-medium;
+    }
+  }
+}

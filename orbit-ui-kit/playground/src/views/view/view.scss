@@ -1,0 +1,21 @@
+@import "../../../../source/style/shared/_variables.scss";
+
+.orbit-views {
+  h1 {
+    padding-left: $spacing-large;
+  }
+  .orbit-view {
+    margin: $spacing-medium 0;
+    height: 400px;
+    background-color: $gray-light;
+
+    .page-content {
+      background-color: $gray-very-light;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

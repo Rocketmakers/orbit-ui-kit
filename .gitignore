@@ -1,0 +1,10 @@
+node_modules/
+dist/
+lib/
+out/
+*.log
+.vscode
+_symlink
+public/
+.npmrc
+.DS_Store

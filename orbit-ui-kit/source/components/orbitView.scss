@@ -1,0 +1,14 @@
+@import "../style/shared/_variables.scss";
+
+.orbit-view {
+  padding: $spacing-large;
+
+  &[data-mode="form"] {
+    max-width: 800px;
+  }
+
+  &[data-mode="full-width"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

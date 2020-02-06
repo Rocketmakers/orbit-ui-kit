@@ -1,0 +1,9 @@
+.dialog-layer {
+  .dialog {
+    border-radius: $border-radius-large;
+
+    .dialog-content {
+      overflow: unset;
+    }
+  }
+}
