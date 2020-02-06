@@ -1,9 +1,5 @@
 __tests__
-_deploy
-.github
-workbench/
 source/
-storybook/
 playground/
 sass_concat.js
 .node-version
