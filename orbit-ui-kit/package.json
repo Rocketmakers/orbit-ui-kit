@@ -31,11 +31,6 @@
   ],
   "author": "developers@rocketmakers.com",
   "license": "MIT",
-  "dependencies": {
-    "moment": "2.24.0",
-    "prop-types": "15.7.2",
-    "underscore": "1.9.1"
-  },
   "peerDependencies": {
     "@types/react": "16.x",
     "react": "16.x",
