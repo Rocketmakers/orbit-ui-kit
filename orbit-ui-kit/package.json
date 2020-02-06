@@ -34,7 +34,7 @@
   "dependencies": {
     "moment": "2.24.0",
     "prop-types": "15.7.2",
-    "underscore": "1.9.1"
+    "underscore": "1.9.2"
   },
   "peerDependencies": {
     "@types/react": "16.x",
@@ -43,10 +43,10 @@
     "@rocketmakers/armstrong": "0.x"
   },
   "devDependencies": {
-    "@types/mocha": "5.2.7",
-    "@types/node": "13.1.0",
+    "@types/mocha": "7.0.1",
+    "@types/node": "13.7.0",
     "@types/react": "^16.9.19",
-    "@types/react-dom": "16.9.4",
+    "@types/react-dom": "16.9.5",
     "@types/underscore": "1.9.4",
     "chokidar": "3.3.1",
     "import-resolve": "0.4.0",
@@ -57,18 +57,18 @@
     "@rocketmakers/armstrong": "0.0.1-alpha.44",
     "react-hooks-testing-library": "0.6.0",
     "react-test-renderer": "16.12.0",
-    "ts-loader": "6.0.4",
+    "ts-loader": "6.2.1",
     "tslib": "1.10.0",
-    "tslint": "5.20.0",
+    "tslint": "6.0.0",
     "typescript": "3.7.5",
     "@types/react-router-dom": "^5.1.2",
     "autoprefixer": "^9.7.1",
     "browser-sync": "^2.26.7",
     "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
+    "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "ignore-loader": "^0.1.2",
-    "mini-css-extract-plugin": "^0.8.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
