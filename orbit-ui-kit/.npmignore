@@ -2,6 +2,9 @@ __tests__
 source/
 playground/
 sass_concat.js
+copy.js
 .node-version
 IcoMoon-Ultimate.ttf
 .vscode
+prettier.config.js
+tslint.json
