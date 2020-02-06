@@ -10,4 +10,6 @@ Used for developing new ui components / styling
 
 Clone this project
 
+`cd orbit-ui-kit`
+
 `npm i && npm start`
