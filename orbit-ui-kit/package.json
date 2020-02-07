@@ -49,7 +49,7 @@
     "parallelshell": "3.0.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "@rocketmakers/armstrong": "0.0.1-alpha.44",
+    "@rocketmakers/armstrong": "0.0.1-alpha.45",
     "react-hooks-testing-library": "0.6.0",
     "react-test-renderer": "16.12.0",
     "ts-loader": "6.0.4",

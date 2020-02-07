@@ -10,3 +10,9 @@ importResolve({
   pathToMain: "./source/core.scss",
   output: "./dist/core.scss"
 });
+
+importResolve({
+  ext: "scss",
+  pathToMain: "./source/imports.scss",
+  output: "./dist/imports.scss"
+});
