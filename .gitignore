@@ -8,3 +8,4 @@ _symlink
 public/
 .npmrc
 .DS_Store
+www

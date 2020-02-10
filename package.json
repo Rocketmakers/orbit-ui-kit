@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm i && (cd orbit-ui-kit && npm start)",
     "release": "ts-node _deploy/publish.ts",
     "version": "(cd orbit-ui-kit && npm version prerelease --preid=alpha --git-tag-version=false) && git add .",
-    "postinstall": "(cd orbit-ui-kit && npm i) && (cd orbit-ui-kit/playground && npm i)"
+    "postinstall": "(cd orbit-ui-kit && npm i)"
   },
   "repository": {
     "type": "git",
