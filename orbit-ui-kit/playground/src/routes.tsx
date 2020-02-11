@@ -14,6 +14,7 @@ import { ViewView } from "./views/view/view";
 import { IconSetView } from "./views/iconSet/iconSet";
 import { ButtonsView } from "./views/buttons/buttons";
 import { SpinnerView } from "./views/spinner/spinner";
+import { TabsView } from "./views/tabs/tabs";
 export const history = createBrowserHistory();
 
 export const Routes: React.FunctionComponent = () => (
@@ -28,6 +29,7 @@ export const Routes: React.FunctionComponent = () => (
         <Route exact path={"/dialogs"} component={DialogsView} />
         <Route exact path={"/hooks"} component={HooksView} />
         <Route exact path={"/views"} component={ViewView} />
+        <Route path={"/tabs"} component={TabsView} />
         <Route exact path={"/icon-set"} component={IconSetView} />
         <Route exact path={"/buttons"} component={ButtonsView} />
         <Route exact path={"/spinner"} component={SpinnerView} />

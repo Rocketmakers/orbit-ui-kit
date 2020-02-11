@@ -52,6 +52,11 @@ export const Shell: React.FC = ({ children }) => {
               to: "/views"
             },
             {
+              icon: Icon.Icomoon.tab,
+              name: "Tabs",
+              to: "/tabs"
+            },
+            {
               icon: Icon.Icomoon.grid2,
               name: "Icon set",
               to: "/icon-set"

@@ -16,3 +16,4 @@ export { OrbitIcons } from "./utils/orbitIcons";
 export { OrbitButton } from "./components/orbitButton";
 export { OrbitSpinner } from "./components/orbitSpinner";
 export { OrbitFormLabel } from "./components/orbitFormLabel";
+export { OrbitTabbedView } from "./components/orbitTabbedView";
