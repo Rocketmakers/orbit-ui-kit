@@ -67,6 +67,12 @@ export const Shell: React.FC = ({ children }) => {
               name: "Icon set",
               isActive: pathname === "/icon-set",
               onClick: () => push("/icon-set")
+            },
+            {
+              icon: Icon.Icomoon.mouse,
+              name: "Buttons",
+              isActive: pathname === "/buttons",
+              onClick: () => push("/buttons")
             }
           ]}
         >

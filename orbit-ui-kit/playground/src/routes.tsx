@@ -12,6 +12,7 @@ import { DialogsView } from "./views/dialogs/dialogs";
 import { EditableView } from "./views/editable/editable";
 import { ViewView } from "./views/view/view";
 import { IconSetView } from "./views/iconSet/iconSet";
+import { ButtonsView } from "./views/buttons/buttons";
 export const history = createBrowserHistory();
 
 export const Routes: React.FunctionComponent = () => (
@@ -27,6 +28,7 @@ export const Routes: React.FunctionComponent = () => (
         <Route exact path={"/hooks"} component={HooksView} />
         <Route exact path={"/views"} component={ViewView} />
         <Route exact path={"/icon-set"} component={IconSetView} />
+        <Route exact path={"/buttons"} component={ButtonsView} />
         <Redirect path="*" to={`/`} />
       </Switch>
     </Shell>

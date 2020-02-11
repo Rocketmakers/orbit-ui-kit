@@ -1,8 +1,10 @@
 $size: 40px;
 $big-size: 60px;
 
-.btn {
+button.btn {
   @include inline-centre-content();
+  padding-top: 0;
+  padding-bottom: 0;
   box-shadow: $shadow-small;
   background-color: $white;
   color: black;
@@ -15,7 +17,10 @@ $big-size: 60px;
   }
 
   &[data-accent="true"] {
-    color: var(--orbit-color);
+    ::before,
+    ::after {
+      color: var(--orbit-color);
+    }
   }
 
   &[data-invert="true"] {
@@ -31,11 +36,19 @@ $big-size: 60px;
     @include circle($big-size);
   }
 
-  &[data-danger="true"] {
-    color: $color-negative;
+  &[data-danger="true"],
+  &[data-display-mode="negative"] {
+    ::before,
+    ::after {
+      color: $color-negative;
+    }
   }
 
-  &[data-success="true"] {
-    color: $color-positive;
+  &[data-success="true"],
+  &[data-display-mode="positive"] {
+    ::before,
+    ::after {
+      color: $color-positive;
+    }
   }
 }
