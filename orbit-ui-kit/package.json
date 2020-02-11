@@ -1,6 +1,6 @@
 {
   "name": "@rocketmakers/orbit-ui-kit",
-  "version": "0.0.2-alpha.6",
+  "version": "0.0.2-alpha.7",
   "description": "Rocketmakers Orbit library of React components and styling",
   "main": "./dist/index.js",
   "style": "./dist/style.scss",
