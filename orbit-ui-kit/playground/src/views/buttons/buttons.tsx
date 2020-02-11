@@ -3,7 +3,7 @@ import { OrbitView, OrbitButton, OrbitIcons, OrbitGroup } from "../../../../sour
 
 export const ButtonsView: React.FC = () => {
   return (
-    <OrbitView>
+    <OrbitView mode="form">
       <h1>Buttons</h1>
       <OrbitGroup>
         <OrbitButton leftIcon={OrbitIcons.tick} displayMode="positive">

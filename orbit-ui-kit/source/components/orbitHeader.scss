@@ -28,7 +28,9 @@
     display: flex;
     align-items: center;
     color: $gray-medium;
-    span {
+    span,
+    a {
+      color: $gray-medium;
       margin: $spacing-xsmall;
 
       &:first-child {

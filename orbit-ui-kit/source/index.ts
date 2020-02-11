@@ -14,3 +14,5 @@ export { OrbitColorSetter } from "./components/orbitColorSetter";
 export { useOrbitToast } from "./hooks/useOrbitToastHooks";
 export { OrbitIcons } from "./utils/orbitIcons";
 export { OrbitButton } from "./components/orbitButton";
+export { OrbitSpinner } from "./components/orbitSpinner";
+export { OrbitFormLabel } from "./components/orbitFormLabel";

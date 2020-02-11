@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Icon, Tooltip } from "@rocketmakers/armstrong";
+import { NavLink } from "react-router-dom";
 
 interface ISidebarLinkProps {
   sidebarOpen: boolean;
   icon: string;
   name: string;
-  onClick?: () => void;
-  isActive?: boolean;
+  to?: string;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 export const OrbitSidebarLink: React.FunctionComponent<ISidebarLinkProps> = props => {
@@ -22,9 +23,9 @@ export const OrbitSidebarLink: React.FunctionComponent<ISidebarLinkProps> = prop
   );
 };
 
-const SidebarLinkInner: React.FC<ISidebarLinkProps> = ({ onClick, icon, isActive, sidebarOpen, name }) => (
-  <div className="sidebar-link" onClick={onClick} data-is-active={isActive}>
+const SidebarLinkInner: React.FC<ISidebarLinkProps> = ({ onClick, icon, sidebarOpen, name, to }) => (
+  <NavLink to={to} className="sidebar-link" onClick={onClick} activeClassName="active">
     <Icon icon={icon} />
     {sidebarOpen && <p>{name}</p>}
-  </div>
+  </NavLink>
 );

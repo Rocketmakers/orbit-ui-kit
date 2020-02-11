@@ -70,10 +70,10 @@
     margin-bottom: $spacing-small;
     cursor: pointer;
 
-    &[data-is-active="true"] {
+    &.active {
       box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.18);
     }
-    &:hover[data-is-active="false"] {
+    &:hover:not(.active) {
       background-color: rgba($white, 0.08);
     }
   }

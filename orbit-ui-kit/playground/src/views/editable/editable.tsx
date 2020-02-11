@@ -38,16 +38,18 @@ export const EditableView: React.FC = () => {
         </div>
       </OrbitEditable>
       <OrbitGroup label="Code example">
-        {`<OrbitEditable`} <br />
-        {`readOnlyValue="Some random value"`}
-        <br />
-        {`label="Editable input"`}
-        <br />
-        {`onSubmit={() => sendOK("Noice")}>`}
-        <br />
-        {`<TextInput value="Some random value" />`}
-        <br />
-        {`</OrbitEditable>`}
+        <pre>
+          {`<OrbitEditable`} <br />
+          {`readOnlyValue="Some random value"`}
+          <br />
+          {`label="Editable input"`}
+          <br />
+          {`onSubmit={() => sendOK("Noice")}>`}
+          <br />
+          {`<TextInput value="Some random value" />`}
+          <br />
+          {`</OrbitEditable>`}
+        </pre>
       </OrbitGroup>
     </OrbitView>
   );

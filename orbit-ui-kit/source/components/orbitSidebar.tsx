@@ -11,8 +11,8 @@ export interface IOrbitSideBarProps {
 interface ISidebarLink {
   icon: string;
   name: string;
+  to?: string;
   onClick?: () => void;
-  isActive?: boolean;
 }
 
 type ISidebarLinkType = ISidebarLink | JSX.Element;

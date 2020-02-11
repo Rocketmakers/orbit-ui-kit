@@ -6,7 +6,9 @@ export const HiddenFieldView: React.FC = () => {
     <OrbitView mode="form">
       <h1>Hidden Field</h1>
       <OrbitHiddenField value={"this is a hidden field"} hiddenLength={10} />
-      <OrbitGroup label="Code example">{`<OrbitHiddenField value={"this is a hidden field"} />`}</OrbitGroup>
+      <OrbitGroup label="Code example">
+        <pre>{`<OrbitHiddenField value={"this is a hidden field"} />`}</pre>
+      </OrbitGroup>
     </OrbitView>
   );
 };

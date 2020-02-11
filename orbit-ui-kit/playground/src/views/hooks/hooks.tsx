@@ -16,10 +16,12 @@ export const HooksView: React.FC = () => {
         <Button onClick={() => sendErrors(["this is error 1", "this is error 2"])}>sendErrors</Button>
       </OrbitGroup>
       <OrbitGroup label="Code example">
-        {`const { sendOK } = useOrbitToast();`}
-        <br />
-        <br />
-        {`sendOK("this is OK")`}
+        <pre>
+          {`const { sendOK } = useOrbitToast();`}
+          <br />
+          <br />
+          {`sendOK("this is OK")`}
+        </pre>
       </OrbitGroup>
     </OrbitView>
   );

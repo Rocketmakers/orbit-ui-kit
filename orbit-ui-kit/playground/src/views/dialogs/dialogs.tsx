@@ -31,10 +31,12 @@ export const DialogsView: React.FC = () => {
         </Button>
       </OrbitGroup>
       <OrbitGroup label="Code example">
-        const open = useDialogProvider(OrbitConfirmationDialog);
-        <br />
-        <br />
-        open("Some text content")
+        <pre>
+          const open = useDialogProvider(OrbitConfirmationDialog);
+          <br />
+          <br />
+          open("Some text content")
+        </pre>
       </OrbitGroup>
     </OrbitView>
   );

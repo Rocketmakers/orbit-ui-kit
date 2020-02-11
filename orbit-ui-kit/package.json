@@ -35,6 +35,7 @@
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x",
+    "react-router-dom": "5.x",
     "@rocketmakers/armstrong": "0.x"
   },
   "devDependencies": {
@@ -49,6 +50,7 @@
     "parallelshell": "3.0.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "react-router-dom": "5.1.2",
     "@rocketmakers/armstrong": "0.0.1-alpha.45",
     "react-hooks-testing-library": "0.6.0",
     "react-test-renderer": "16.12.0",
@@ -74,7 +76,6 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
-    "history": "^4.10.1",
-    "react-router-dom": "^5.1.2"
+    "history": "^4.10.1"
   }
 }

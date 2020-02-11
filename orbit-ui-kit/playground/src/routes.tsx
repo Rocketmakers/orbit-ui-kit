@@ -13,13 +13,14 @@ import { EditableView } from "./views/editable/editable";
 import { ViewView } from "./views/view/view";
 import { IconSetView } from "./views/iconSet/iconSet";
 import { ButtonsView } from "./views/buttons/buttons";
+import { SpinnerView } from "./views/spinner/spinner";
 export const history = createBrowserHistory();
 
 export const Routes: React.FunctionComponent = () => (
   <Router history={history}>
     <Shell>
       <Switch>
-        <Route exact path={"/"} component={WelcomeView} />
+        <Route exact path={"/welcome"} component={WelcomeView} />
         <Route exact path={"/header"} component={HeaderView} />
         <Route exact path={"/hidden-field"} component={HiddenFieldView} />
         <Route exact path={"/group"} component={GroupView} />
@@ -29,7 +30,8 @@ export const Routes: React.FunctionComponent = () => (
         <Route exact path={"/views"} component={ViewView} />
         <Route exact path={"/icon-set"} component={IconSetView} />
         <Route exact path={"/buttons"} component={ButtonsView} />
-        <Redirect path="*" to={`/`} />
+        <Route exact path={"/spinner"} component={SpinnerView} />
+        <Redirect path="*" to={`/welcome`} />
       </Switch>
     </Shell>
   </Router>

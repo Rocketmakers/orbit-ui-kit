@@ -25,7 +25,7 @@ export const HeaderView: React.FC = () => {
       <div className="component-container">
         <OrbitHeader
           onBack={() => console.log("wow")}
-          breadcrumb={[{ label: "Route page" }, { label: "Not route page", onRoute: () => console.log("wow") }]}
+          breadcrumb={[{ label: "Route page" }, { label: "Not route page", onClick: () => console.log("wow") }]}
           title="Not route page"
         >
           <Button onClick={() => console.log("wow")} data-has-text={false}>
@@ -42,7 +42,7 @@ export const HeaderView: React.FC = () => {
       <div className="component-container">
         <OrbitHeader
           onBack={() => console.log("wow")}
-          breadcrumb={[{ label: "Users" }, { label: "User", onRoute: () => console.log("wow") }]}
+          breadcrumb={[{ label: "Users" }, { label: "User", onClick: () => console.log("wow") }]}
           title="User"
           icon={Icon.Icomoon.user}
         >

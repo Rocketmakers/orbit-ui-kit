@@ -16,6 +16,10 @@
   label {
     display: inline-block;
     margin-bottom: $spacing-medium;
+
+    i {
+      margin-right: $spacing-xsmall;
+    }
   }
 
   .hidden-field {
