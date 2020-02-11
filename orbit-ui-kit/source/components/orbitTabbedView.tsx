@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IconName, IcomoonIcon } from "@rocketmakers/armstrong";
+import { IconName, IcomoonIcon, useMedia } from "@rocketmakers/armstrong";
 import { NavLink, Switch, useRouteMatch, Redirect, Route } from "react-router-dom";
 import { OrbitView } from "./orbitView";
 
@@ -16,7 +16,8 @@ interface ITabbedViewProps {
 
 export const OrbitTabbedView: React.FunctionComponent<ITabbedViewProps> = ({ tabs }) => {
   const { url } = useRouteMatch();
-  console.log(url);
+
+  const defaultTab = React.useMemo(() => tabs && tabs.length && tabs[0].to, [tabs]);
   return (
     <OrbitView className="orbit-tabbed-view" mode="full-width">
       <div className="tabs">
@@ -32,7 +33,7 @@ export const OrbitTabbedView: React.FunctionComponent<ITabbedViewProps> = ({ tab
           {tabs.map(tab => (
             <Route path={`${url}/${tab.to}`} component={tab.component} />
           ))}
-          <Redirect to={url} />
+          <Redirect to={defaultTab ? `${url}/${defaultTab}` : url} />
         </Switch>
       </div>
     </OrbitView>
