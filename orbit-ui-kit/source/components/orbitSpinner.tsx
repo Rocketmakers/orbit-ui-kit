@@ -3,14 +3,14 @@ import { ClassHelpers, IcomoonIcon } from "@rocketmakers/armstrong";
 
 interface IProps {
   className?: string;
-  simple?: boolean;
+  display?: "simple" | "full";
   fill?: boolean;
 }
 
-export const OrbitSpinner: React.FC<IProps> = ({ className, fill, simple = true }) => {
+export const OrbitSpinner: React.FC<IProps> = ({ className, fill, display = "simple" }) => {
   return (
     <div className={ClassHelpers.classNames("orbit-spinner", className)} data-fill={fill}>
-      {simple ? <IcomoonIcon iconName="spinner2" /> : <IcomoonIcon iconName="spinner2" />}
+      {display === "simple" ? <IcomoonIcon iconName="spinner2" /> : <IcomoonIcon iconName="spinner2" />}
     </div>
   );
 };
