@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Sidebar, Icons } from "@rocketmakers/armstrong";
+import { Sidebar, Icons, IconName } from "@rocketmakers/armstrong";
 import { OrbitSidebarLink } from "./orbitSidebarLink";
 import { OrbitIcons } from "../utils/orbitIcons";
 
@@ -9,10 +9,10 @@ export interface IOrbitSideBarProps {
 }
 
 interface ISidebarLink {
-  icon: string;
+  icon: IconName<"Icomoon">;
   name: string;
   to?: string;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 type ISidebarLinkType = ISidebarLink | JSX.Element;

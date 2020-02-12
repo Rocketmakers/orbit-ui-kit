@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Icon, ToastProvider, DialogProvider } from "@rocketmakers/armstrong";
-import { useHistory, useLocation } from "react-router-dom";
+import { ToastProvider, DialogProvider } from "@rocketmakers/armstrong";
 import { OrbitSidebar } from "../../../source/components/orbitSidebar";
 import { OrbitColorSetter } from "../../../source/components/orbitColorSetter";
 
@@ -12,62 +11,62 @@ export const Shell: React.FC = ({ children }) => {
           name="Components"
           links={[
             {
-              icon: Icon.Icomoon.bubbleSmiley,
+              icon: "bubbleSmiley",
               name: "Welcome",
               to: "/welcome"
             },
             {
-              icon: Icon.Icomoon.minus,
+              icon: "minus",
               name: "Header",
               to: "/header"
             },
             {
-              icon: Icon.Icomoon.eyeBlocked2,
+              icon: "eyeBlocked2",
               name: "Hidden field",
               to: "/hidden-field"
             },
             {
-              icon: Icon.Icomoon.grid6,
+              icon: "grid6",
               name: "Group",
               to: "/group"
             },
             {
-              icon: Icon.Icomoon.pencil,
+              icon: "pencil",
               name: "Editable",
               to: "/editable"
             },
             {
-              icon: Icon.Icomoon.popout,
+              icon: "popout",
               name: "Dialogs",
               to: "/dialogs"
             },
             {
-              icon: Icon.Icomoon.fish,
+              icon: "fish",
               name: "Hooks",
               to: "/hooks"
             },
             {
-              icon: Icon.Icomoon.checkboxUnchecked2,
+              icon: "checkboxUnchecked2",
               name: "Views",
               to: "/views"
             },
             {
-              icon: Icon.Icomoon.tab,
+              icon: "tab",
               name: "Tabs",
               to: "/tabs"
             },
             {
-              icon: Icon.Icomoon.grid2,
+              icon: "grid2",
               name: "Icon set",
               to: "/icon-set"
             },
             {
-              icon: Icon.Icomoon.mouse,
+              icon: "mouse",
               name: "Buttons",
               to: "/buttons"
             },
             {
-              icon: Icon.Icomoon.spinner2,
+              icon: "spinner2",
               name: "Spinner",
               to: "/spinner"
             }
