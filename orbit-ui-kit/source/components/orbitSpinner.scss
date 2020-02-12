@@ -9,12 +9,7 @@
 }
 
 .orbit-spinner {
-  align-self: stretch;
-  justify-self: stretch;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex;
 
   .icon {
     animation: spin 1s linear infinite;
@@ -23,7 +18,8 @@
   &[data-fill="true"] {
     width: 100%;
     height: 100%;
-
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
   }
 }
