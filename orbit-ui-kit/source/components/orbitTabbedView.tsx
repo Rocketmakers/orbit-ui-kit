@@ -27,9 +27,9 @@ export const OrbitTabbedView: React.FunctionComponent<ITabbedViewProps> = ({ tab
         {tabs.map((tab, i) => (
           <React.Fragment key={i}>
             {activeTab !== undefined ? (
-              <div className={`tab ${activeTab === i ? "active" : ""}`} onClick={() => tab.onClick(i)}>
+              <button className={`tab ${activeTab === i ? "active" : ""}`} onClick={() => tab.onClick(i)}>
                 <TabInner {...tab} />
-              </div>
+              </button>
             ) : (
               <NavLink className="tab" activeClassName="active" to={`${url}/${tab.to}`}>
                 <TabInner {...tab} />

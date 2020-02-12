@@ -29,35 +29,35 @@
     }
   }
 
-  .tooltip-wrapper {
-    .tooltip {
-      color: $gray-very-dark;
-      background-color: white;
-      border-radius: $border-radius-small;
-      box-shadow: $shadow-medium;
-      padding: $spacing-xsmall $spacing-small;
-      font-weight: $font-weight-regular;
+  // .tooltip-wrapper {
+  //   .tooltip {
+  //     color: $gray-very-dark;
+  //     background-color: white;
+  //     border-radius: $border-radius-small;
+  //     box-shadow: $shadow-medium;
+  //     padding: $spacing-xsmall $spacing-small;
+  //     font-weight: $font-weight-regular;
 
-      &:after {
-        display: none;
-      }
+  //     &:after {
+  //       display: none;
+  //     }
 
-      &:before {
-        right: 100%;
-        top: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-color: rgba(255, 255, 255, 0);
-        border-right-color: #fff;
-        border-width: 7px;
-        margin-top: -7px;
-      }
-    }
-  }
+  //     &:before {
+  //       right: 100%;
+  //       top: 50%;
+  //       border: solid transparent;
+  //       content: " ";
+  //       height: 0;
+  //       width: 0;
+  //       position: absolute;
+  //       pointer-events: none;
+  //       border-color: rgba(255, 255, 255, 0);
+  //       border-right-color: #fff;
+  //       border-width: 7px;
+  //       margin-top: -7px;
+  //     }
+  //   }
+  // }
 
   .sidebar-link {
     padding: $spacing-small;

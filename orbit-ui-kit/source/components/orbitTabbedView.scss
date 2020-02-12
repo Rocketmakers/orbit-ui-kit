@@ -34,6 +34,11 @@ $tabs-padding: $spacing-large;
       border-radius: $border-radius-small $border-radius-small 0 0;
     }
 
+    button {
+      border: 0;
+      outline: none;
+    }
+
     .tab {
       padding: $spacing-small $spacing-large;
       color: $black;
@@ -42,6 +47,7 @@ $tabs-padding: $spacing-large;
       opacity: 50%;
       position: relative;
       border-radius: $border-radius-small $border-radius-small 0 0;
+      cursor: pointer;
 
       @include centre-content;
 

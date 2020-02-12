@@ -30,6 +30,21 @@ export const GroupView: React.FC = () => {
           <p>nested2</p>
         </OrbitGroup>
       </OrbitGroup>
+      <OrbitGroup label="Group with info" info="Some complex info">
+        Some complex thing that needs some info
+      </OrbitGroup>
+      <OrbitGroup
+        label="Group with info"
+        info={
+          <div>
+            <h1>Some complex JSX info</h1>
+            <br />
+            <em>Wowee</em>
+          </div>
+        }
+      >
+        Some complex thing that needs JSX info
+      </OrbitGroup>
       <OrbitGroup label="Hidden field in group">
         <OrbitHiddenField value="peekaboo" />
       </OrbitGroup>

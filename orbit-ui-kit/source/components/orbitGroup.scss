@@ -2,6 +2,7 @@
 
 .orbit-group {
   @include orbit-box;
+  position: relative;
 
   > div:not(.orbit-group) {
     margin-bottom: $spacing-medium;
@@ -41,9 +42,17 @@
     }
   }
 
-  .hidden-field {
-    margin: 0 !important;
-    padding: 0 !important;
+  div.info {
+    position: absolute;
+    top: $spacing-small;
+    right: $spacing-small;
+    padding: 0;
+    color: $gray-medium;
+  }
+
+  div.hidden-field {
+    margin: 0;
+    padding: 0;
     border: 0;
   }
 }

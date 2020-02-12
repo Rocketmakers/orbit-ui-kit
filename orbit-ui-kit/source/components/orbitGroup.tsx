@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ClassHelpers, IconName, IcomoonIcon } from "@rocketmakers/armstrong";
+import { ClassHelpers, IconName, IcomoonIcon, Tooltip } from "@rocketmakers/armstrong";
 
 interface IProps {
   label?: string;
@@ -7,9 +7,10 @@ interface IProps {
   className?: string;
   icon?: IconName<"Icomoon">;
   inline?: boolean;
+  info?: string | JSX.Element;
 }
 
-export const OrbitGroup: React.FC<IProps> = ({ children, label, htmlFor, className, icon, inline }) => {
+export const OrbitGroup: React.FC<IProps> = ({ children, label, htmlFor, className, icon, inline, info }) => {
   return (
     <div className={ClassHelpers.classNames("orbit-group", className)} data-inline={inline}>
       {label && (
@@ -19,6 +20,11 @@ export const OrbitGroup: React.FC<IProps> = ({ children, label, htmlFor, classNa
         </label>
       )}
       {children}
+      {info && (
+        <Tooltip tooltip={info} wrapperAttributes={{ className: "info" }} position={"top"}>
+          <IcomoonIcon iconName="info" />
+        </Tooltip>
+      )}
     </div>
   );
 };
