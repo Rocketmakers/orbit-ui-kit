@@ -1,7 +1,7 @@
 $size: 40px;
 $big-size: 60px;
 
-button.btn {
+.btn {
   @include inline-centre-content();
   padding-top: 0;
   padding-bottom: 0;
