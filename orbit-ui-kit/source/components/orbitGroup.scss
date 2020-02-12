@@ -3,7 +3,7 @@
 .orbit-group {
   @include orbit-box;
 
-  > div {
+  > div:not(.orbit-group) {
     margin-bottom: $spacing-medium;
     padding: 0 $spacing-medium;
   }
@@ -11,6 +11,25 @@
   > .group-label {
     color: $gray-medium;
     display: block;
+  }
+
+  .orbit-group {
+    &:last-of-type {
+      margin-bottom: $spacing-small;
+    }
+  }
+
+  &[data-inline="true"] {
+    display: flex;
+    align-items: center;
+
+    div {
+      margin-bottom: 0;
+    }
+
+    > .group-label {
+      margin-bottom: 0;
+    }
   }
 
   label {
@@ -23,8 +42,8 @@
   }
 
   .hidden-field {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     border: 0;
   }
 }

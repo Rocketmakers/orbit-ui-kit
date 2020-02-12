@@ -1,6 +1,6 @@
 import * as React from "react";
 import { OrbitView, OrbitGroup, OrbitHiddenField, OrbitFormLabel } from "../../../../source";
-import { TextInput } from "@rocketmakers/armstrong";
+import { TextInput, SwitchInput } from "@rocketmakers/armstrong";
 
 export const GroupView: React.FC = () => {
   return (
@@ -22,8 +22,19 @@ export const GroupView: React.FC = () => {
       <OrbitGroup label="With icon" icon={"weatherRain"}>
         This label has an icon
       </OrbitGroup>
+      <OrbitGroup label="Nested group">
+        <OrbitGroup label="Nested group">
+          <p>nested1</p>
+        </OrbitGroup>
+        <OrbitGroup label="Nested group">
+          <p>nested2</p>
+        </OrbitGroup>
+      </OrbitGroup>
       <OrbitGroup label="Hidden field in group">
         <OrbitHiddenField value="peekaboo" />
+      </OrbitGroup>
+      <OrbitGroup label="Inline" inline={true}>
+        <SwitchInput />
       </OrbitGroup>
       <OrbitGroup label="Code example">
         <pre>
