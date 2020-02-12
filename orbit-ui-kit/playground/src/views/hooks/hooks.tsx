@@ -1,9 +1,13 @@
 import * as React from "react";
-import { OrbitView, OrbitGroup, useOrbitToast } from "../../../../source";
-import { Button } from "@rocketmakers/armstrong";
+import { OrbitView, OrbitGroup, useOrbitToast, useOrbitDirtyDialog } from "../../../../source";
+import { Button, useForm, TextInput } from "@rocketmakers/armstrong";
 
+const initialData = { text: "" };
 export const HooksView: React.FC = () => {
   const { sendError, sendErrors, sendInfo, sendOK, sendWarning } = useOrbitToast();
+
+  const { DataForm, bind, dataBinder } = useForm(initialData);
+  const { DirtyPrompt, resetDirtyPrompt } = useOrbitDirtyDialog(dataBinder);
   return (
     <OrbitView mode="form">
       <h1>Hooks</h1>
@@ -21,6 +25,25 @@ export const HooksView: React.FC = () => {
           <br />
           <br />
           {`sendOK("this is OK")`}
+        </pre>
+      </OrbitGroup>
+      <h3>Dirty dialog</h3>
+      <OrbitGroup label="Dirty dialog">
+        <DataForm>
+          <TextInput {...bind.text("text")} placeholder="Type something then change route" />
+          <Button onClick={resetDirtyPrompt}>Reset dirty dialog</Button>
+          <DirtyPrompt />
+        </DataForm>
+      </OrbitGroup>
+      <OrbitGroup label="Code example">
+        <pre>
+          {`const { DataForm, bind, dataBinder } = useForm(initialData);`}
+          <br />
+          <br />
+          {`const { DirtyPrompt, resetDirtyPrompt } = useOrbitDirtyDialog(dataBinder);`}
+          <br />
+          <br />
+          {`<DirtyPrompt />`}
         </pre>
       </OrbitGroup>
     </OrbitView>
