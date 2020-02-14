@@ -24,31 +24,6 @@
     }
   }
 
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    color: $gray-medium;
-    span,
-    a {
-      color: $gray-medium;
-      margin: $spacing-xsmall;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &.link {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
-
-    i {
-      font-size: 10px;
-      font-weight: 600;
-    }
-  }
-
   .go-back-btn {
     margin-right: $spacing-small;
     color: var(--orbit-color);
@@ -69,11 +44,6 @@
   &[data-top="false"] {
     background-color: white;
     box-shadow: $shadow;
-
-    .breadcrumb {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
   }
 
   > div {

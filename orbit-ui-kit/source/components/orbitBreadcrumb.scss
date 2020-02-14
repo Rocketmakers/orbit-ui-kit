@@ -1,0 +1,24 @@
+.orbit-breadcrumb {
+  display: flex;
+  align-items: center;
+  color: $gray-medium;
+  span,
+  a {
+    color: $gray-medium;
+    margin: $spacing-xsmall;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.link {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  i {
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
