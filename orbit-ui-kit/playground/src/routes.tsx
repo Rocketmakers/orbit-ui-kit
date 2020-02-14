@@ -15,6 +15,8 @@ import { IconSetView } from "./views/iconSet/iconSet";
 import { ButtonsView } from "./views/buttons/buttons";
 import { SpinnerView } from "./views/spinner/spinner";
 import { TabsView } from "./views/tabs/tabs";
+import { DataTableView } from "./views/dataTable/dataTable";
+
 export const history = createBrowserHistory();
 
 export const Routes: React.FunctionComponent = () => (
@@ -33,6 +35,7 @@ export const Routes: React.FunctionComponent = () => (
         <Route exact path={"/icon-set"} component={IconSetView} />
         <Route exact path={"/buttons"} component={ButtonsView} />
         <Route exact path={"/spinner"} component={SpinnerView} />
+        <Route exact path={"/data-table"} component={DataTableView} />
         <Redirect path="*" to={`/welcome`} />
       </Switch>
     </Shell>

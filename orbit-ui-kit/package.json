@@ -51,7 +51,7 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-router-dom": "5.1.2",
-    "@rocketmakers/armstrong": "0.0.1-alpha.45",
+    "@rocketmakers/armstrong": "0.0.1-alpha.46",
     "react-hooks-testing-library": "0.6.0",
     "react-test-renderer": "16.12.0",
     "ts-loader": "6.0.4",

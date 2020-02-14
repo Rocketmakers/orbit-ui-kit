@@ -36,11 +36,11 @@ export const OrbitSidebar: React.FC<IOrbitSideBarProps> = ({ children, name, lin
             </div>
           )}
 
-          {links.map(link => {
+          {links.map((link, i) => {
             if (sidebarLinkIsElement(link)) {
-              return link;
+              return <React.Fragment key={i}>{link}</React.Fragment>;
             }
-            return <OrbitSidebarLink sidebarOpen={isOpen} {...link} />;
+            return <OrbitSidebarLink key={i} sidebarOpen={isOpen} {...link} />;
           })}
         </>
       )}

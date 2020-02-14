@@ -69,6 +69,11 @@ export const Shell: React.FC = ({ children }) => {
               icon: "spinner2",
               name: "Spinner",
               to: "/spinner"
+            },
+            {
+              icon: "table",
+              name: "Data table",
+              to: "/data-table"
             }
           ]}
         >

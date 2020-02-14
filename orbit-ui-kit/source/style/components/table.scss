@@ -1,53 +1,100 @@
-@import '../shared/variables';
-@import '../shared/mixins';
+@import "../shared/variables";
+@import "../shared/mixins";
 
-.table-container {
-  .table {
-    border: none;
+.async-dt {
+  .filters {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 $spacing-large;
+    > *:not(:first-child) {
+      margin-left: $spacing-small;
+    }
+  }
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    tbody {
+      box-shadow: $shadow-big;
+    }
+    .table-cell-inner {
+      padding: $spacing-medium;
+      &:not(.custom) {
+        color: $gray-dark;
+      }
+      &.custom {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      display: flex;
+      align-items: center;
+      &.header {
+        font-size: $font-size-xxsmall;
+        padding-bottom: $spacing-small;
+        color: $gray-medium;
+        font-weight: normal;
+        i {
+          margin-left: $spacing-xsmall;
+        }
+      }
+      a {
+        color: var(--orbit-color);
+        text-decoration: underline;
+      }
+    }
+    tr {
+      &[data-clickable="true"] {
+        cursor: pointer;
+        transition: background-color 150ms;
+        &:hover {
+          background-color: $gray-light;
+        }
+      }
+      &:not(:last-child) td {
+        border-bottom: 1px solid $gray-light;
+      }
+    }
+  }
 
-    .table-header {
-      border: none;
-
-      tr {
-        th {
-          border: none;
-          text-transform: capitalize;
-          font-weight: 500;
-
-          i {
-            margin-left: $spacing-small;
-          }
-
-          &:first-of-type {
-            padding-left: $spacing-large;
-          }
-
-          &:last-of-type {
-            padding-right: $spacing-large;
+  .table-pager {
+    display: flex;
+    justify-content: center;
+    margin-top: $spacing-xlarge;
+    color: $gray-dark;
+    .table-pager-inner {
+      display: flex;
+      align-items: center;
+      .page-indicator {
+        display: flex;
+        align-items: center;
+        margin: 0 $spacing-large;
+        font-size: $font-size-xsmall;
+        .armstrong-input {
+          margin: 0 $spacing-small;
+          input {
+            width: 50px;
+            min-width: 0;
+            height: 34px;
           }
         }
       }
-    }
-
-    .table-body {
-      .table-row {
-        border-top: $line-very-light;
-
-        &:last-of-type {
-          border-bottom: $line-very-light;
+      .btn.double-arrow {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        i {
+          font-size: $font-size-xsmall;
+          &:first-child {
+            margin-right: -4px;
+          }
+          &:last-child {
+            margin-left: -4px;
+          }
         }
-
-        td {
-          height: 70px;
-          border: none;
-
-          &:first-of-type {
-            padding-left: $spacing-large;
-          }
-
-          &:last-of-type {
-            padding-right: $spacing-large;
-          }
+        &:first-child {
+          margin-right: $spacing-medium;
+        }
+        &:last-child {
+          margin-left: $spacing-medium;
         }
       }
     }

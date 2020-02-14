@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import { useForm, Icon, TextInput, IcomoonIcon, IconName } from "@rocketmakers/armstrong";
+import { useForm, Icon, TextInput, IcomoonIcon, IconName, useDidUpdateEffect } from "@rocketmakers/armstrong";
 import { OrbitButton } from "../components/orbitButton";
 import { OrbitIcons } from "../utils/orbitIcons";
 import { useQueryString } from "./useQueryStringHook";
@@ -47,21 +47,20 @@ interface IHookProps<T> {
 export interface IAsyncDataTableDataHeader<T> {
   columnId: ColumnId<T>;
   label: React.ReactText | JSX.Element;
-  dataFormatter?: (data: T) => React.ReactText | JSX.Element;
+  dataFormatter?: (data: T, clickProtector: ClickProtector<T>) => React.ReactText | JSX.Element;
   align?: "left" | "right" | "center";
   sortable?: boolean;
 }
 
-type ClickProtector<D> = (action: (data: D) => any) => (e: React.MouseEvent<Element>) => boolean;
+type ClickProtector<D> = (action?: (data: D) => any) => (e: React.MouseEvent<Element>) => boolean;
 type SortOption = "ASC" | "DESC";
 type SortData<T> = { columnId: ColumnId<T>; option: SortOption };
 
 function clickProtectorFactory<D>(data: D): ClickProtector<D> {
   return action => e => {
     e.stopPropagation();
-    e.preventDefault();
-    action(data);
-    return false;
+    action?.(data);
+    return true;
   };
 }
 
@@ -141,7 +140,7 @@ export function useAsyncDataTable<T, K extends keyof T, F extends {} = {}>(confi
     return { ...data };
   }, [binderDataForHooks, dataBinder]);
 
-  React.useEffect(() => {
+  useDidUpdateEffect(() => {
     if (Object.keys(binderData).length) {
       setQueryString({ flt: JSON.stringify(binderData), pn: "1" });
     } else {
@@ -198,7 +197,11 @@ export function useAsyncDataTable<T, K extends keyof T, F extends {} = {}>(confi
 
   const FilterForm = React.useCallback<React.FC<{ children: (formBind: typeof bind) => JSX.Element }>>(
     ({ children }) => {
-      return <DataForm>{children(bind)}</DataForm>;
+      return (
+        <DataForm>
+          <div className="filters">{children(bind)}</div>
+        </DataForm>
+      );
     },
     [DataForm, bind]
   );
@@ -298,11 +301,11 @@ function AsyncDataTable<T, K extends keyof T, F extends {} = {}>(
     colId => {
       switch (true) {
         case currentSortData?.columnId === colId && currentSortData?.option === "ASC":
-          return "arrowDown2";
+          return "arrowDown3";
         case currentSortData?.columnId === colId && currentSortData?.option === "DESC":
-          return "arrowUp2";
+          return "arrowUp3";
         default:
-          return "minus2";
+          return "minus3";
       }
     },
     [currentSortData]
@@ -330,31 +333,31 @@ function AsyncDataTable<T, K extends keyof T, F extends {} = {}>(
 
   return (
     <div className="async-dt">
-      {!!children && <div className="filters">{children}</div>}
+      {children}
       <table className="data-table">
         <>
           <thead>
             <tr>
               {customPreHeaders.map((h, i) => (
-                <th className="custom-header pre" key={`custom-header-pre-data-${i}`} data-align={h.align || "left"}>
-                  {h.label && <div className="table-header-inner">{h.label}</div>}
+                <th key={`custom-pre-header-${i}`} className="custom-header pre" data-align={h.align || "left"}>
+                  {h.label && <div className="table-cell-inner header">{h.label}</div>}
                 </th>
               ))}
               {(dataHeaders || []).map(h => (
                 <th key={h.columnId} data-align={h.align || "left"}>
                   {h.sortable ? (
-                    <a href="#" onClick={onSortFactory(h.columnId)}>
-                      {h.label && <div className="table-header-inner">{h.label}</div>}
+                    <a className="table-cell-inner header" href="#" onClick={onSortFactory(h.columnId)}>
+                      {h.label && <div>{h.label}</div>}
                       <IcomoonIcon iconName={getSortIcon(h.columnId)} />
                     </a>
                   ) : (
-                    <>{h.label && <div className="table-header-inner">{h.label}</div>}</>
+                    <>{h.label && <div className="table-cell-inner header">{h.label}</div>}</>
                   )}
                 </th>
               ))}
               {customPostHeaders.map((h, i) => (
-                <th className="custom-header post" key={`custom-header-post-data-${i}`} data-align={h.align || "left"}>
-                  {h.label && <div className="table-header-inner">{h.label}</div>}
+                <th key={`custom-post-header-${i}`} className="custom-header post" data-align={h.align || "left"}>
+                  {h.label && <div className="table-cell-inner header">{h.label}</div>}
                 </th>
               ))}
             </tr>
@@ -363,13 +366,19 @@ function AsyncDataTable<T, K extends keyof T, F extends {} = {}>(
             {(data || []).map((r, i) => (
               <tr key={rowKey ? `${r[rowKey]}` : i} onClick={e => actionClick(e, i, onRowClick)} data-clickable={!!onRowClick}>
                 {customPreHeaders.map((h, hi) => (
-                  <td key={`custom-pre-data-${i}-${hi}`}>{h.contents(r, clickProtectorFactory(r))}</td>
+                  <td key={`custom-pre-data-${i}-${hi}`}>
+                    <div className="table-cell-inner custom">{h.contents(r, clickProtectorFactory(r))}</div>
+                  </td>
                 ))}
                 {dataHeaders.map(h => (
-                  <td key={h.columnId}>{h.dataFormatter ? h.dataFormatter(r) : r[h.columnId]}</td>
+                  <td key={h.columnId}>
+                    <div className="table-cell-inner">{h.dataFormatter ? h.dataFormatter(r, clickProtectorFactory(r)) : r[h.columnId]}</div>
+                  </td>
                 ))}
                 {customPostHeaders.map((h, hi) => (
-                  <td key={`custom-pre-data-${i}-${hi}`}>{h.contents(r, clickProtectorFactory(r))}</td>
+                  <td key={`custom-pre-data-${i}-${hi}`}>
+                    <div className="table-cell-inner custom">{h.contents(r, clickProtectorFactory(r))}</div>
+                  </td>
                 ))}
               </tr>
             ))}
@@ -378,27 +387,29 @@ function AsyncDataTable<T, K extends keyof T, F extends {} = {}>(
       </table>
       {!!paging && (
         <div className="table-pager">
-          <OrbitButton disabled={!paging.previous} onClick={() => onGoto(1)}>
-            <Icon icon={OrbitIcons.left} />
-            <Icon icon={OrbitIcons.left} />
-          </OrbitButton>
-          <OrbitButton leftIcon={OrbitIcons.left} disabled={!paging.previous} onClick={onPrevClick} big={true} />
-          <div className="page-indicator">
-            <span>page</span>
-            <TextInput
-              onKeyUp={e => e.keyCode === 13 && e.currentTarget.blur()}
-              disabled={totalPages === 1}
-              value={currentPageValue}
-              onChange={onGotoChanged}
-              onBlur={onGotoBlur}
-            />
-            <span>of {totalPages}</span>
+          <div className="table-pager-inner">
+            <OrbitButton className="double-arrow" disabled={!paging.previous} onClick={() => onGoto(1)}>
+              <Icon icon={OrbitIcons.left} />
+              <Icon icon={OrbitIcons.left} />
+            </OrbitButton>
+            <OrbitButton leftIcon={OrbitIcons.left} disabled={!paging.previous} onClick={onPrevClick} big={true} />
+            <div className="page-indicator">
+              <span>page</span>
+              <TextInput
+                onKeyUp={e => e.keyCode === 13 && e.currentTarget.blur()}
+                disabled={totalPages === 1}
+                value={currentPageValue}
+                onChange={onGotoChanged}
+                onBlur={onGotoBlur}
+              />
+              <span>of {totalPages}</span>
+            </div>
+            <OrbitButton leftIcon={OrbitIcons.right} disabled={!paging.next} onClick={onNextClick} big={true} />
+            <OrbitButton className="double-arrow" disabled={!paging.next} onClick={() => onGoto(totalPages)}>
+              <Icon icon={OrbitIcons.right} />
+              <Icon icon={OrbitIcons.right} />
+            </OrbitButton>
           </div>
-          <OrbitButton leftIcon={OrbitIcons.right} disabled={!paging.next} onClick={onNextClick} big={true} />
-          <OrbitButton disabled={!paging.next} onClick={() => onGoto(totalPages)}>
-            <Icon icon={OrbitIcons.right} />
-            <Icon icon={OrbitIcons.right} />
-          </OrbitButton>
         </div>
       )}
     </div>
