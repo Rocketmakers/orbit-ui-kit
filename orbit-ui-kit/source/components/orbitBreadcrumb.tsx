@@ -13,7 +13,7 @@ export interface IBreadcrumb {
   label: string;
 }
 
-export const Breadcrumb: React.FC<IProps> = ({ breadcrumb }) => {
+export const OrbitBreadcrumb: React.FC<IProps> = ({ breadcrumb }) => {
   return (
     <div className="breadcrumb">
       {breadcrumb.map((crumb, i) => (

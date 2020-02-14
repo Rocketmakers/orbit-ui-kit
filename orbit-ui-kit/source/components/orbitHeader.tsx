@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Icon, Button, useSidebar, useEventListener, ClassHelpers } from "@rocketmakers/armstrong";
-import { Breadcrumb, IBreadcrumb } from "./breadcrumb";
+import { OrbitBreadcrumb, IBreadcrumb } from "./orbitBreadcrumb";
 import { OrbitIcons } from "../utils/orbitIcons";
 
 interface IProps {
@@ -44,7 +44,7 @@ export const OrbitHeader: React.FC<IProps> = ({ children, className, breadcrumb,
           </Button>
         )}
         <div>
-          {showBreadCrumb && <Breadcrumb breadcrumb={breadcrumb} />}
+          {showBreadCrumb && <OrbitBreadcrumb breadcrumb={breadcrumb} />}
           <div className="title">
             {icon && <Icon icon={icon} />}
             {title}
