@@ -21,7 +21,21 @@ interface IFilters {
   gender: string;
 }
 
+const fakeDelay = (): Promise<void> => new Promise(res => setTimeout(res, 700));
+
 export const DataTableView: React.FC = () => {
+  const [pending, setPending] = React.useState(false);
+
+  const fakePending = React.useCallback<typeof fakeDelay>(async () => {
+    setPending(true);
+    await fakeDelay();
+    setPending(false);
+  }, [setPending]);
+
+  const editClick = React.useCallback<(d: DummyRow) => void>(d => {
+    alert(`edit click - ${d.id}`);
+  }, []);
+
   const tableConfig = React.useMemo<IAsyncDataTableConfig<DummyRow, "id", IFilters>>(
     () => ({
       dataHeaders: [
@@ -67,17 +81,20 @@ export const DataTableView: React.FC = () => {
           position: "pre-data"
         },
         {
-          contents: (__, protect) => <OrbitButton leftIcon={OrbitIcons.edit} onClick={protect(d => alert(`edit click - ${d.id}`))} />
+          contents: (d, protect) => <OrbitButton leftIcon={OrbitIcons.edit} onClick={protect(editClick)} />
         }
       ],
       pageSize: 10,
       rowKey: "id",
-      onRowClick: () => alert("row click")
+      onRowClick: () => alert("row click"),
+      settings: {
+        autoSubmitFilters: false
+      }
     }),
     []
   );
 
-  const { AsyncTable, pageSize, page, sortValue, FilterForm, filterValues } = useAsyncDataTable(tableConfig);
+  const { AsyncTable, pageSize, page, sortValue, FilterForm, filterValues, submitFilters, clearFilters } = useAsyncDataTable(tableConfig);
 
   const formattedData = React.useMemo<DummyRow[]>(() => {
     let data = [...dummyData];
@@ -106,6 +123,12 @@ export const DataTableView: React.FC = () => {
     return data.slice(skip, skip + take);
   }, [pageSize, page, sortValue, filterValues]);
 
+  const [dataToShow, setDataToShow] = React.useState([]);
+
+  React.useEffect(() => {
+    fakePending().then(() => setDataToShow(formattedData));
+  }, [formattedData]);
+
   const paging = React.useMemo(
     () => ({
       current: page,
@@ -118,7 +141,7 @@ export const DataTableView: React.FC = () => {
   return (
     <OrbitView mode="full-width">
       <h1 className="m-left-medium">Data Table</h1>
-      <AsyncTable pending={false} data={formattedData} totalRows={dummyData.length} paging={paging}>
+      <AsyncTable pending={pending} data={dataToShow} totalRows={dummyData.length} paging={paging}>
         <FilterForm>
           {bind => (
             <>
@@ -133,6 +156,12 @@ export const DataTableView: React.FC = () => {
                 optionLabel="All"
                 enableOptionLabel={true}
               />
+              <OrbitButton displayMode="negative" leftIcon={OrbitIcons.cross} onClick={() => clearFilters()}>
+                Clear
+              </OrbitButton>
+              <OrbitButton displayMode="positive" leftIcon={Icons.Icomoon.search} onClick={submitFilters}>
+                Search
+              </OrbitButton>
             </>
           )}
         </FilterForm>
