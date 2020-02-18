@@ -23,6 +23,9 @@ export {
   useAsyncDataTable,
   IAsyncDataTableConfig,
   IAsyncDataTableCustomHeader,
-  IAsyncDataTableDataHeader
+  IAsyncDataTableDataHeader,
+  IAsyncDataTableHookResponse,
+  IAsyncDataTablePaging,
+  IAsyncDataTableSettings
 } from "./hooks/useAsyncDataTableHook";
 export { useQueryString } from "./hooks/useQueryStringHook";
