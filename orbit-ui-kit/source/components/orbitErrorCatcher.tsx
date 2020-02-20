@@ -2,6 +2,8 @@ import * as React from "react";
 import { OrbitButton } from "./orbitButton";
 import { Icons } from "@rocketmakers/armstrong";
 
+import "./orbitErrorCatcher.scss";
+
 interface IErrorCatcherProps {
   /**
    * Custom override for behaviour when "Reload App" is clicked.
