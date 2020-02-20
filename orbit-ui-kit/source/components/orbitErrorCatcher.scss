@@ -1,0 +1,49 @@
+@import "../style/shared/_variables.scss";
+
+.full-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $gray-light;
+  .full-error-inner {
+    max-width: 1024px;
+    background-color: white;
+    box-shadow: $shadow-big;
+    padding: $spacing-medium;
+    border-radius: $border-radius-small;
+    h1 {
+      color: $color-negative;
+    }
+    p:not(.full-error-support) {
+      font-size: $font-size-medium;
+    }
+    pre {
+      width: 100%;
+      margin: $spacing-medium auto;
+      border: 1px solid $gray-light;
+      background-color: rgba($color-negative, 0.03);
+      padding: $spacing-small;
+      max-height: 500px;
+      overflow: auto;
+      color: $gray-dark;
+    }
+    h4 {
+      margin-top: $spacing-small;
+    }
+    .full-error-support {
+      .bull {
+        margin: 0 5px;
+        color: $gray-light;
+      }
+    }
+    .full-error-buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
