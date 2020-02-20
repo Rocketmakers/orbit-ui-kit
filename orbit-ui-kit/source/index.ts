@@ -19,6 +19,7 @@ export { OrbitSpinner } from "./components/orbitSpinner";
 export { OrbitFormLabel } from "./components/orbitFormLabel";
 export { OrbitTabbedView } from "./components/orbitTabbedView";
 export { OrbitBreadcrumb } from "./components/orbitBreadcrumb";
+export { OrbitErrorCatcher } from "./components/orbitErrorCatcher";
 export {
   useAsyncDataTable,
   IAsyncDataTableConfig,

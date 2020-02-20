@@ -29,7 +29,7 @@ interface IErrorCatcherState {
   error?: any;
 }
 
-export class ErrorCatcher extends React.Component<IErrorCatcherProps, IErrorCatcherState> {
+export class OrbitErrorCatcher extends React.Component<IErrorCatcherProps, IErrorCatcherState> {
   static getDerivedStateFromError = (e: any) => ({ error: e });
 
   constructor(props: IErrorCatcherProps) {
