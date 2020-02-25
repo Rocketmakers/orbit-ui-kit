@@ -78,10 +78,12 @@ export const DataTableView: React.FC = () => {
       customHeaders: [
         {
           contents: d => <IcomoonIcon iconName="user" title={`${d.first_name} ${d.last_name}`} />,
-          position: "pre-data"
+          position: "pre-data",
+          width: "min"
         },
         {
-          contents: (d, protect) => <OrbitButton leftIcon={OrbitIcons.edit} onClick={protect(editClick)} />
+          contents: (d, protect) => <OrbitButton leftIcon={OrbitIcons.edit} onClick={protect(editClick)} />,
+          width: "min"
         }
       ],
       pageSize: 10,

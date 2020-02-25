@@ -210,20 +210,46 @@ interface IHookProps<TDataRow> {
 }
 
 /**
+ * The base interface for columns. Extended by both "Data" and "Custom" column types.
+ */
+interface IAsyncDataTableHeader {
+  /**
+   * An optional horizontal align setting for the contents of this column.
+   * @type {string}
+   * @default left
+   */
+  align?: "left" | "right" | "center";
+  /**
+   * A label for the column, will be displayed in the table header.
+   * @type {string|number|JSX.Element}
+   */
+  label?: React.ReactText | JSX.Element;
+  /**
+   * By default, the columns are horizontally spaced automatically by the browser, this optional setting provides further customization.
+   * "min" - the column will fill the minimum available horizontal space, whilst still respecting content width and padding.
+   * "max" - the column will fill the maximum amount of space available, forcing all other columns to their minimum size.
+   * number - if you really want to hard-code a percentage width for the column
+   * @type {string | number}
+   */
+  width?: "min" | "max" | number;
+  /**
+   * Use to prevent white space from wrapping in this cell.
+   * This is particularly useful in combination with 'width: "min"' if your text has spaces. Or if there's another column with 'width: "max"'
+   * @type {boolean}
+   */
+  noWrap?: true;
+}
+
+/**
  * Type definition for the config relating to columns that correspond to the keys of the data row.
  * @template TDataRow - A key/value dictionary describing a single row of data.
  */
-export interface IAsyncDataTableDataHeader<TDataRow> {
+export interface IAsyncDataTableDataHeader<TDataRow> extends IAsyncDataTableHeader {
   /**
    * The key of the data row linking this column to it's data.
    * @type {string}
    */
   columnId: ColumnId<TDataRow>;
-  /**
-   * A label for the column, will be displayed in the table header.
-   * @type {string|number|JSX.Element}
-   */
-  label: React.ReactText | JSX.Element;
   /**
    * An optional formatter, used for displaying anything in the column other than the raw data.
    * @param {Object} data - The total data set for the row being displayed, not just this column.
@@ -231,12 +257,6 @@ export interface IAsyncDataTableDataHeader<TDataRow> {
    * @returns {string|number|JSX.Element} - What to display in the column, instead of the raw data.
    */
   dataFormatter?: (data: TDataRow, clickProtector: ClickProtector<TDataRow>) => React.ReactText | JSX.Element;
-  /**
-   * An optional horizontal align setting for the contents of this column.
-   * @type {string}
-   * @default left
-   */
-  align?: "left" | "right" | "center";
   /**
    * Allow user sorting for this column.
    * @type {boolean?}
@@ -268,12 +288,7 @@ type SortData<TDataRow> = { columnId: ColumnId<TDataRow>; option: SortOption };
  * Type definition for the config relating to columns that DO NOT correspond to any keys of the data row.
  * @template TDataRow - A key/value dictionary describing a single row of data.
  */
-export interface IAsyncDataTableCustomHeader<TDataRow> {
-  /**
-   * A label for the column, will be displayed in the table header.
-   * @type {string|number|JSX.Element}
-   */
-  label?: React.ReactText | JSX.Element;
+export interface IAsyncDataTableCustomHeader<TDataRow> extends IAsyncDataTableHeader {
   /**
    * The content to display in this column for each row.
    * @param {Object} data - The total data set for the row being displayed, not just this column.
@@ -281,12 +296,7 @@ export interface IAsyncDataTableCustomHeader<TDataRow> {
    * @returns {string|number|JSX.Element} - What to display in the column, instead of the raw data.
    */
   contents?: (data: TDataRow, clickProtector: ClickProtector<TDataRow>) => React.ReactText | JSX.Element;
-  /**
-   * An optional horizontal align setting for the contents of this column.
-   * @type {string}
-   * @default left
-   */
-  align?: "left" | "right" | "center";
+
   /**
    * Pass "pre-data" to this position attribute to display this custom column BEFORE the data rows. By default, custom columns are displayed AFTER the data rows ("post-data")
    * @type {string}
@@ -819,6 +829,28 @@ function AsyncDataTable<TDataRow, TIdentifyingRowKey extends keyof TDataRow, TFi
   );
 
   /**
+   * Returns the width / wrap settings from the column config as props to be spread onto a <td> or <th>
+   */
+  type TDProps = React.DetailedHTMLProps<
+    React.TdHTMLAttributes<HTMLTableDataCellElement | HTMLTableHeaderCellElement>,
+    HTMLTableDataCellElement | HTMLTableHeaderCellElement
+  >;
+  const getColumnWidthAndWrap = React.useCallback<(column: IAsyncDataTableHeader) => TDProps>(column => {
+    const tdProps: TDProps = {};
+    if (column.width) {
+      if (typeof column.width === "string") {
+        tdProps["data-width-preset"] = column.width;
+      } else {
+        tdProps.style = { width: `${column.width}%` };
+      }
+    }
+    if (column.noWrap) {
+      tdProps.style = { ...(tdProps.style || {}), whiteSpace: "nowrap" };
+    }
+    return tdProps;
+  }, []);
+
+  /**
    * Render the table...
    */
   return (
@@ -829,12 +861,17 @@ function AsyncDataTable<TDataRow, TIdentifyingRowKey extends keyof TDataRow, TFi
           <thead>
             <tr>
               {customPreHeaders.map((h, i) => (
-                <th key={`custom-pre-header-${i}`} className="custom-header pre" data-align={h.align || "left"}>
+                <th
+                  key={`custom-pre-header-${i}`}
+                  className="custom-header pre"
+                  data-align={h.align || "left"}
+                  {...getColumnWidthAndWrap(h)}
+                >
                   {h.label && <div className="table-cell-inner header">{h.label}</div>}
                 </th>
               ))}
               {(dataHeaders || []).map(h => (
-                <th key={h.columnId} data-align={h.align || "left"}>
+                <th key={h.columnId} data-align={h.align || "left"} {...getColumnWidthAndWrap(h)}>
                   {h.sortable ? (
                     <a className="table-cell-inner header" href="#" onClick={onSortFactory(h.columnId)}>
                       {h.label && <div>{h.label}</div>}
@@ -846,7 +883,12 @@ function AsyncDataTable<TDataRow, TIdentifyingRowKey extends keyof TDataRow, TFi
                 </th>
               ))}
               {customPostHeaders.map((h, i) => (
-                <th key={`custom-post-header-${i}`} className="custom-header post" data-align={h.align || "left"}>
+                <th
+                  key={`custom-post-header-${i}`}
+                  className="custom-header post"
+                  data-align={h.align || "left"}
+                  {...getColumnWidthAndWrap(h)}
+                >
                   {h.label && <div className="table-cell-inner header">{h.label}</div>}
                 </th>
               ))}
@@ -863,17 +905,17 @@ function AsyncDataTable<TDataRow, TIdentifyingRowKey extends keyof TDataRow, TFi
             {(data || []).map((r, i) => (
               <tr key={rowKey ? `${r[rowKey]}` : i} onClick={e => actionClick(e, i, onRowClick)} data-clickable={!!onRowClick}>
                 {customPreHeaders.map((h, hi) => (
-                  <td key={`custom-pre-data-${i}-${hi}`}>
+                  <td key={`custom-pre-data-${i}-${hi}`} {...getColumnWidthAndWrap(h)}>
                     <div className="table-cell-inner custom">{h.contents(r, clickProtectorFactory(r))}</div>
                   </td>
                 ))}
                 {dataHeaders.map(h => (
-                  <td key={h.columnId}>
+                  <td key={h.columnId} {...getColumnWidthAndWrap(h)}>
                     <div className="table-cell-inner">{h.dataFormatter ? h.dataFormatter(r, clickProtectorFactory(r)) : r[h.columnId]}</div>
                   </td>
                 ))}
                 {customPostHeaders.map((h, hi) => (
-                  <td key={`custom-pre-data-${i}-${hi}`}>
+                  <td key={`custom-pre-data-${i}-${hi}`} {...getColumnWidthAndWrap(h)}>
                     <div className="table-cell-inner custom">{h.contents(r, clickProtectorFactory(r))}</div>
                   </td>
                 ))}

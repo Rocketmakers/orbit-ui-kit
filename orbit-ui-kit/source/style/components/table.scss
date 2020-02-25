@@ -66,6 +66,18 @@ $header-height: 50px;
       }
     }
     tr {
+      > th,
+      > td {
+        &[data-width-preset="min"] {
+          width: 1px;
+        }
+        &[data-width-preset="max"] {
+          width: 100%;
+        }
+      }
+      > th {
+        white-space: nowrap;
+      }
       &[data-clickable="true"] {
         cursor: pointer;
         transition: background-color 150ms;
@@ -77,19 +89,18 @@ $header-height: 50px;
         border-bottom: 1px solid $gray-light;
       }
       &.no-data {
-        height: 500px;
+        height: 200px;
         .no-data-block {
           color: $gray-medium;
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
           i {
-            font-size: $font-size-xlarge;
-            margin-bottom: $spacing-small;
+            font-size: $font-size-medium;
+            margin-right: $spacing-small;
           }
           h3 {
-            font-size: $font-size-large;
+            font-size: $font-size-medium;
             text-align: center;
             margin: 0;
           }

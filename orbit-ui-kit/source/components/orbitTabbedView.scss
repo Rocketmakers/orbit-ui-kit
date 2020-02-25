@@ -8,7 +8,7 @@ $tabs-padding: $spacing-large;
   z-index: 2;
 
   .tabs-inner {
-    box-shadow: $shadow-medium;
+    box-shadow: $shadow-big;
     position: relative;
     z-index: 2;
     background-color: $white;
@@ -29,7 +29,7 @@ $tabs-padding: $spacing-large;
       bottom: 0;
       left: $tabs-padding;
       right: $tabs-padding;
-      box-shadow: $shadow;
+      box-shadow: $shadow-big;
       z-index: -1;
       border-radius: $border-radius-small $border-radius-small 0 0;
     }
@@ -63,7 +63,7 @@ $tabs-padding: $spacing-large;
           @include basic-pseudo;
           @include absolute-fill;
           z-index: -1;
-          box-shadow: $shadow;
+          box-shadow: $shadow-big;
           border-radius: $border-radius-small $border-radius-small 0 0;
         }
 
